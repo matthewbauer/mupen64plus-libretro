@@ -17,6 +17,10 @@ UNAME=$(shell uname -a)
 ROOT_DIR := .
 LIBRETRO_DIR := $(ROOT_DIR)/libretro
 
+ifneq ($(EMSCRIPTEN),)
+	platform = emscripten
+endif
+
 ifeq ($(platform),)
 	platform = unix
 	ifeq ($(UNAME),)
